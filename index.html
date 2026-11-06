@@ -1,50 +1,274 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>TikTok Shop - Apple Official Store</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VoltaVenda | Loja</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
+  color:#171717;
+}
+header{
+  height:58px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 15px;
+  border-bottom:1px solid #eee;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.logo{font-size:21px;font-weight:800;color:#fa2455}
+.search{
+  border:1px solid #fa2455;
+  border-radius:25px;
+  padding:9px;
+  width:42%;
+}
+.cart{font-size:23px;cursor:pointer}
+main{max-width:600px;margin:auto;background:white;min-height:100vh}
+.gallery{
+  height:430px;
+  background:#eee;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+.gallery img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.photo-placeholder{
+  color:#777;
+  font-size:15px;
+  text-align:center;
+  padding:20px;
+}
+.counter{
+  position:absolute;
+  bottom:12px;
+  right:12px;
+  background:#0008;
+  color:white;
+  padding:5px 10px;
+  border-radius:5px;
+}
+.info{padding:15px}
+.discount{color:#fa2455;font-size:19px}
+.price{font-size:25px;font-weight:bold;margin-left:8px}
+.old-price{color:#999;text-decoration:line-through;margin-left:8px}
+h2{font-size:18px;line-height:1.4;margin:10px 0}
+.muted{color:#777;font-size:13px}
+.shipping{color:#168c79;margin-top:12px;font-size:14px}
+.section{
+  padding:18px 15px;
+  border-top:8px solid #f5f5f5;
+}
+.section h3{font-size:17px;margin:0 0 15px}
+.colors{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+}
+.color{
+  min-width:115px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  overflow:hidden;
+  text-align:center;
+  cursor:pointer;
+  background:white;
+}
+.color.active,.size.active{
+  border:2px solid #fa2455;
+  color:#fa2455;
+}
+.color-preview{
+  height:125px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  color:#555;
+  background:#eee;
+}
+.color-name{padding:10px 4px}
+.sizes{display:flex;gap:10px;flex-wrap:wrap}
+.size{
+  min-width:55px;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  text-align:center;
+  cursor:pointer;
+}
+.review{padding:8px 0;border-bottom:1px solid #eee}
+.stars{color:#222;font-size:19px}
+.buybar{
+  position:sticky;
+  bottom:0;
+  background:white;
+  padding:12px 15px;
+  border-top:1px solid #eee;
+}
+.buy{
+  width:100%;
+  border:0;
+  background:#fa2455;
+  color:white;
+  padding:17px;
+  border-radius:35px;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.notice{
+  background:#fff1f4;
+  color:#b51d45;
+  padding:12px;
+  text-align:center;
+  font-size:12px;
+}
+</style>
 </head>
-<body class="bg-gray-100 pb-28 font-sans text-gray-800">
 
-  <!-- TOPO NATIVO TIKTOK SHOP -->
-  <header class="sticky top-0 z-50 bg-white px-4 py-3 flex items-center justify-between border-b border-gray-200 shadow-sm">
-    <button class="text-gray-800 text-lg"><i class="fa-solid fa-chevron-left"></i></button>
-    <div class="flex-1 mx-3 bg-gray-100 rounded-full flex items-center px-3.5 py-1.5 text-xs text-gray-500 border border-gray-200">
-      <i class="fa-solid fa-magnifying-glass mr-2 text-red-500"></i>
-      <span>Buscar na loja...</span>
-    </div>
-    <div class="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-[#ff2c55] text-xs font-bold">
-      <i class="fa-solid fa-bag-shopping"></i>
-    </div>
-  </header>
+<body>
 
-  <!-- CARROSSEL DE 5 FOTOS REAIS DOS IPHONES -->
-  <div class="relative bg-white">
-    <div class="swiper mySwiper w-full h-80">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600" class="w-full h-full object-cover" alt="iPhone 15 Pro Max"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1695048065057-08b5e6795f70?w=600" class="w-full h-full object-cover" alt="iPhone 16 Pro Max"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" class="w-full h-full object-cover" alt="iPhone 17 Pro Max"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600" class="w-full h-full object-cover" alt="iPhone 18 Pro Max"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600" class="w-full h-full object-cover" alt="iPhone 18 Ultra"></div>
-      </div>
-      <!-- Paginação numérica estilo TikTok Shop -->
-      <div class="absolute bottom-3 right-3 bg-black/60 text-white text-[11px] px-2 py-0.5 rounded-full z-10 font-mono" id="slideCounter">1 / 5</div>
+<header>
+  <div class="logo">VoltaVenda</div>
+  <input class="search" placeholder="Pesquisar produtos">
+  <div class="cart" onclick="alert('Sacola demonstrativa')">🛍️</div>
+</header>
+
+<main>
+
+  <div class="gallery">
+    <div class="photo-placeholder">
+      <div style="font-size:55px">👕</div>
+      Foto do produto<br>
+      Imagem será conectada ao Supabase
     </div>
+    <div class="counter">1 / 1</div>
   </div>
 
-  <!-- PREÇO E DESCONTO -->
-  <div class="bg-white px-4 py-3 border-b border-gray-100">
-    <div class="flex items-baseline space-x-2">
-      <span class="text-xs font-bold bg-[#ff2c55]/10 text-[#ff2c55] px-1.5 py-0.5 rounded">-80%</span>
-      <span class="text-2xl font-black text-[#ff2c55]">R$ 35,99</span>
-      <span class="text-xs text-gray-400 line-through">R$ 8.999,00</span>
+  <div class="info">
+    <div>
+      <span class="discount">-60%</span>
+      <span class="price">R$ 35,99</span>
+      <span class="old-price">R$ 90,00</span>
     </div>
-    <h1 class="text-xs font-medium leading-snug mt-2 text-gray-900">
-      Apple iPhone Titanium Series Pro Max & Ultra (Modelos 15, 16, 17, 18 Pro Max e 18 Ultra) - 256GB / 512GB - Lacrado com Garantia
-    </h1>
-    <div class="flex items-center justify-between mt-3 text-xs text-gray-500 pt-2
+
+    <h2>Camisa Masculina Gola Padre Manga Curta Lisa Casual Moderna</h2>
+
+    <div class="muted">Vendido pela VoltaVenda</div>
+    <div class="stars">★★★★★ <span class="muted">5,0 | Avaliações demonstrativas</span></div>
+    <div class="shipping">🚚 Informações de entrega serão exibidas no checkout</div>
+  </div>
+
+  <div class="section">
+    <h3>Selecione a cor</h3>
+    <div class="colors" id="colors"></div>
+  </div>
+
+  <div class="section">
+    <h3>Selecione o tamanho</h3>
+    <div class="sizes" id="sizes"></div>
+  </div>
+
+  <div class="section">
+    <h3>Avaliações dos clientes</h3>
+    <div class="review">★★★★★ <span class="muted">Avaliações ainda não disponíveis</span></div>
+    <p class="muted">As avaliações reais serão exibidas quando houver compras confirmadas.</p>
+  </div>
+
+  <div class="notice">
+    Protótipo independente. Compras e pagamentos ainda são demonstrativos.
+  </div>
+
+  <div class="buybar">
+    <button class="buy" onclick="buyProduct()">Comprar agora</button>
+  </div>
+
+</main>
+
+<script>
+const colors = [
+  "Laranja","Preto","Azul Marinho","Cinza Claro",
+  "Branco","Rosa","Azul Bebê"
+];
+
+const sizes = ["P","M","G","GG","XG"];
+
+let selectedColor = "";
+let selectedSize = "";
+
+const colorsBox = document.getElementById("colors");
+const sizesBox = document.getElementById("sizes");
+
+colors.forEach(color => {
+  const item = document.createElement("div");
+  item.className = "color";
+  item.innerHTML = `
+    <div class="color-preview">Foto ${color}</div>
+    <div class="color-name">${color}</div>
+  `;
+
+  item.onclick = () => {
+    document.querySelectorAll(".color").forEach(el =>
+      el.classList.remove("active")
+    );
+    item.classList.add("active");
+    selectedColor = color;
+  };
+
+  colorsBox.appendChild(item);
+});
+
+sizes.forEach(size => {
+  const item = document.createElement("div");
+  item.className = "size";
+  item.textContent = size;
+
+  item.onclick = () => {
+    document.querySelectorAll(".size").forEach(el =>
+      el.classList.remove("active")
+    );
+    item.classList.add("active");
+    selectedSize = size;
+  };
+
+  sizesBox.appendChild(item);
+});
+
+function buyProduct(){
+  if(!selectedColor){
+    alert("Selecione uma cor.");
+    return;
+  }
+
+  if(!selectedSize){
+    alert("Selecione um tamanho.");
+    return;
+  }
+
+  alert(
+    "Produto selecionado: Camisa Masculina\n" +
+    "Cor: " + selectedColor + "\n" +
+    "Tamanho: " + selectedSize +
+    "\n\nPróxima etapa: integrar a sacola e o checkout."
+  );
+}
+</script>
+
+</body>
+</html>
