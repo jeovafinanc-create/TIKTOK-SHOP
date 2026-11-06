@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Esteira de Produtos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans p-4">
+
+  <div class="max-w-lg mx-auto bg-white p-6 rounded-2xl shadow-sm space-y-4">
+    <div class="flex items-center justify-between pb-3 border-b">
+      <h1 class="font-bold text-lg text-gray-800">Painel Admin - Esteira</h1>
+      <a href="produto.html" class="text-sm text-red-500 font-bold">Ver Loja</a>
+    </div>
+
+    <p class="text-xs text-gray-500">Cadastre ou atualize os produtos que aparecem instantaneamente na sua vitrine:</p>
+
+    <div class="space-y-3 text-sm">
+      <div>
+        <label class="block text-xs font-bold text-gray-600 mb-1">Nome do Produto</label>
+        <input type="text" id="adm-nome" placeholder="Ex: Camisa Masculina Gola Padre" class="w-full border rounded-lg p-2.5 focus:outline-none focus:border-red-500">
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">Preço Atual (R$)</label>
+          <input type="text" id="adm-preco" placeholder="17,99" class="w-full border rounded-lg p-2.5">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-600 mb-1">Preço Antigo (R$)</label>
+          <input type="text" id="adm-antigo" placeholder="90,00" class="w-full border rounded-lg p-2.5">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-bold text-gray-600 mb-1">URL da Foto Principal</label>
+        <input type="text" id="adm-foto" placeholder="https://..." class="w-full border rounded-lg p-2.5">
+      </div>
+
+      <button onclick="salvarProdutoEstaleiro()" class="w-full bg-[#ff2c55] hover:bg-[#e02547] text-white font-bold py-3 rounded-xl shadow mt-2">
+        Salvar Produto na Esteira
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
