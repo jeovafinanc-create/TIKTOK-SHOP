@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Endereço</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans pb-12">
+
+  <header class="bg-white px-4 py-3 flex items-center border-b border-gray-100">
+    <a href="produto.html" class="text-lg text-gray-800 mr-4"><i class="fa-solid fa-chevron-left"></i></a>
+    <h1 class="font-bold text-base text-gray-800">Adicionar o novo endereço</h1>
+  </header>
+
+  <main class="p-4 max-w-md mx-auto space-y-4">
+    <div class="bg-white p-4 rounded-xl shadow-sm space-y-3">
+      <input type="text" placeholder="Nome Completo" class="w-full border border-gray-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-red-500">
+      <input type="text" placeholder="Número de telefone (WhatsApp)" class="w-full border border-gray-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-red-500">
+      <input type="email" placeholder="E-mail para rastreio" class="w-full border border-gray-200 rounded-lg p-2.5 text-sm focus:outline-none focus:border-red-500">
+      
+      <div class="grid grid-cols-2 gap-2">
+        <input type="text" id="cep" placeholder="CEP/Código postal" class="border border-gray-200 rounded-lg p-2.5 text-sm">
+        <input type="text" placeholder="Estado / UF" class="border border-gray-200 rounded-lg p-2.5 text-sm">
+      </div>
+      
+      <input type="text" placeholder="Endereço (Rua, Avenida...)" class="w-full border border-gray-200 rounded-lg p-2.5 text-sm">
+      
+      <div class="grid grid-cols-2 gap-2">
+        <input type="text" placeholder="Nº da residência" class="border border-gray-200 rounded-lg p-2.5 text-sm">
+        <input type="text" placeholder="Complemento (opcional)" class="border border-gray-200 rounded-lg p-2.5 text-sm">
+      </div>
+    </div>
+
+    <!-- Botão Salvar que avança para o pagamento -->
+    <a href="pagamento.html" class="block w-full bg-[#ff2c55] hover:bg-[#e02547] text-white font-bold py-3.5 rounded-full text-center shadow">
+      Salvar e Continuar
+    </a>
+  </main>
+</body>
+</html>
