@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar acesso</title>
+  <style>
+    body {
+      background: #101010;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 25px;
+    }
+    main {
+      max-width: 420px;
+      margin: 70px auto;
+      padding: 25px;
+      background: #202020;
+      border-radius: 12px;
+    }
+    input, button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      box-sizing: border-box;
+      border: 0;
+      border-radius: 7px;
+    }
+    input { background: #333; color: white; }
+    button {
+      background: #25f4ee;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #message { line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Recuperar senha</h1>
+    <p>Informe o e-mail cadastrado no painel administrativo.</p>
+
+    <form id="form">
+      <input id="email" type="email" placeholder="Seu e-mail" required>
+      <button type="submit">Enviar recuperação</button>
+    </form>
+
+    <p id="message"></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+
+  <script>
+    const form = document.getElementById("form");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const button = form.querySelector("button");
+      button.disabled = true;
+      message.textContent = "Enviando solicitação...";
+
+      try {
+        const { error } = await window.supabaseClient.auth
+          .resetPasswordForEmail(email, {
+            redirectTo: window.location.origin + "/recuperar-senha.html"
+          });
+
+        if (error) throw error;
+
+        message.textContent =
+          "Solicitação enviada. Confira sua caixa de entrada e spam.";
+      } catch (error) {
+        message.textContent = "Erro: " + error.message;
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
