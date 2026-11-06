@@ -3,254 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>TikTok Shop</title>
-  <!-- Tailwind CSS -->
+  <title>TikTok Shop - Apple Official Store</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Stripe JS SDK -->
-  <script src="https://js.stripe.com/v3/"></script>
-  <style>
-    /* Ocultar barra de scroll do carrossel */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  </style>
+  <!-- Swiper.js para o Carrossel de 10 Fotos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans pb-24 select-none">
+<body class="bg-gray-100 pb-24 font-sans text-gray-800">
 
-  <!-- 1. BARRA SUPERIOR (NAVBAR TIKTOK SHOP IDENTICA À FOTO) -->
-  <header class="sticky top-0 z-30 bg-white px-3 py-2 flex items-center justify-between border-b border-gray-100">
-    <button class="text-xl text-gray-800 pr-2">
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-    
-    <div class="flex-1 mx-2 relative">
-      <input type="text" placeholder="Search" class="w-full bg-white border border-red-400 rounded-full py-1.5 pl-9 pr-4 text-sm text-gray-700 focus:outline-none placeholder-gray-400">
-      <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-red-500 text-xs"></i>
+  <!-- TOPO NATIVO TIKTOK SHOP -->
+  <header class="sticky top-0 z-50 bg-white px-4 py-2.5 flex items-center justify-between border-b border-gray-100 shadow-sm">
+    <button class="text-gray-700 text-xl"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="flex-1 mx-3 bg-gray-100 rounded-full flex items-center px-3 py-1.5 text-xs text-gray-500">
+      <i class="fa-solid fa-magnifying-glass mr-2 text-gray-400"></i>
+      <span>Buscar no TikTok Shop...</span>
     </div>
-
-    <div class="flex items-center space-x-2">
-      <button onclick="openAdminModal()" class="text-xs bg-gray-200 text-gray-700 font-bold px-2 py-1 rounded">
-        + Esteira
-      </button>
-      <div class="w-8 h-8 rounded-full bg-pink-100 border border-pink-300 flex items-center justify-center text-pink-600 text-[10px] font-bold">
-        Pink
-      </div>
+    <div class="flex items-center space-x-3 text-gray-700 text-lg">
+      <i class="fa-solid fa-share-nodes"></i>
+      <i class="fa-solid fa-ellipsis-vertical"></i>
     </div>
   </header>
 
-  <!-- 2. CARROSSEL DE FOTOS DO PRODUTO (DESLIZA PRO LADO) -->
-  <div class="relative w-full bg-white">
-    <div id="carousel" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar w-full h-[400px]">
-      <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop" class="w-full h-[400px] object-cover flex-shrink-0 snap-center">
-      <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=800&auto=format&fit=crop" class="w-full h-[400px] object-cover flex-shrink-0 snap-center">
-      <img src="https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?q=80&w=800&auto=format&fit=crop" class="w-full h-[400px] object-cover flex-shrink-0 snap-center">
-    </div>
-    
-    <!-- Contador de Fotos (Ex: 10 / 11) -->
-    <div class="absolute bottom-3 right-3 bg-black/40 text-white text-[11px] px-2.5 py-0.5 rounded-full font-medium backdrop-blur-sm">
-      <span id="img-index">1</span> / 11
+  <!-- CAPA / CARROSSEL DE 10 FOTOS DOS APARELHOS -->
+  <div class="relative bg-white">
+    <div class="swiper mySwiper w-full h-80">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600" class="w-full h-full object-contain p-4" alt="iPhone 15 Pro Max"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1695048065057-08b5e6795f70?w=600" class="w-full h-full object-contain p-4" alt="iPhone 16 Pro Max"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" class="w-full h-full object-contain p-4" alt="iPhone 17 Pro Max"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600" class="w-full h-full object-contain p-4" alt="iPhone 18 Pro Max Concept"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600" class="w-full h-full object-contain p-4" alt="Detalhe frontal"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530319067432-f2a729c03db5?w=600" class="w-full h-full object-contain p-4" alt="Acabamento Titanium"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=600" class="w-full h-full object-contain p-4" alt="Caixa e Lacre"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600" class="w-full h-full object-contain p-4" alt="Acessórios inclusos"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600" class="w-full h-full object-contain p-4" alt="Traseira Premium"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=600" class="w-full h-full object-contain p-4" alt="Garantia Apple"></div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 
-  <!-- 3. BLOCO DE PREÇO E TÍTULO -->
-  <div class="bg-white p-4 mb-2">
-    <div class="flex items-baseline space-x-2">
-      <span class="text-[#ff2c55] font-semibold text-lg">-60%</span>
-      <span class="text-2xl font-bold text-gray-900">R$35<span class="text-base">.99</span></span>
-      <span class="text-xs text-gray-400 line-through">R$90,00</span>
+  <!-- FAIXA PROMOÇÃO FLASH -->
+  <div class="bg-gradient-to-r from-[#ff2c55] to-[#ff5277] text-white px-4 py-2.5 flex items-center justify-between">
+    <div>
+      <span class="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded">OFERTA FLASH</span>
+      <div class="text-lg font-black tracking-tight" id="precoDisplay">R$ 17,99 <span class="text-xs font-normal line-through opacity-75">R$ 8.999,00</span></div>
     </div>
+    <div class="text-right">
+      <div class="text-[10px] uppercase font-bold tracking-wider">Termina em</div>
+      <div class="text-sm font-mono font-bold bg-black/20 px-2 py-0.5 rounded">14:52:19</div>
+    </div>
+  </div>
 
-    <h1 class="font-semibold text-sm leading-snug mt-1.5 text-gray-900">
-      Camisa Masculina Gola Padre Manga Curta Lisa Casual Moderna Leve Confortável Verão Dia a Dia Elegante 15 Cores
+  <!-- INFORMAÇÕES DO PRODUTO E LOJA OFICIAL -->
+  <div class="bg-white p-4 mb-2 space-y-3">
+    <h1 class="text-sm font-semibold leading-snug">
+      Apple iPhone Titanium Series Pro Max (Selecione o Modelo: 15 Pro Max, 16 Pro Max, 17 Pro Max ou 18 Pro Max) - 256GB / 512GB / 1TB - Lacrado
     </h1>
 
-    <div class="mt-3 flex items-center justify-between text-xs text-gray-500 border-t border-gray-100 pt-2.5">
-      <div>Sold by <span class="font-bold text-gray-800">Y MODA</span></div>
-      <div class="flex items-center space-x-1 text-teal-600 font-semibold">
-        <i class="fa-solid fa-truck-fast"></i>
-        <span>Free shipping</span>
-      </div>
-    </div>
-
-    <div class="flex items-center space-x-1 text-xs text-gray-600 mt-2">
-      <span class="font-bold">5</span>
-      <i class="fa-solid fa-star text-black text-[10px]"></i>
-      <span class="text-gray-400">11 · 609 sold</span>
-      <i class="fa-solid fa-circle-info text-gray-400 text-[10px] ml-1"></i>
-    </div>
-  </div>
-
-  <!-- 4. SELETOR DE OPÇÕES (SELECT OPTIONS) -->
-  <div onclick="openOptionsModal()" class="bg-white p-4 mb-2 flex items-center justify-between cursor-pointer active:bg-gray-50">
-    <span class="font-bold text-sm text-gray-900">Select options</span>
-    <div class="flex items-center space-x-1 text-sm text-gray-500">
-      <span id="selected-variant" class="text-gray-600 font-medium">Laranja,P</span>
-      <i class="fa-solid fa-chevron-right text-xs ml-1 text-gray-400"></i>
-    </div>
-  </div>
-
-  <!-- 5. ESPECIFICAÇÕES DO PRODUTO -->
-  <div class="bg-white p-4 mb-2">
-    <h2 class="font-bold text-sm text-gray-900 mb-3">Especificações do Produto</h2>
-    <div class="grid grid-cols-2 gap-y-2 text-xs">
-      <div class="text-gray-500">Material</div>
-      <div class="text-gray-800 font-medium">Algodão e Linho Premium</div>
-      <div class="text-gray-500">Estilo da Gola</div>
-      <div class="text-gray-800 font-medium">Gola Padre (Mandarim)</div>
-      <div class="text-gray-500">Comprimento da Manga</div>
-      <div class="text-gray-800 font-medium">Manga Curta</div>
-      <div class="text-gray-500">Estação</div>
-      <div class="text-gray-800 font-medium">Verão / Casual</div>
-    </div>
-  </div>
-
-  <!-- 6. AVALIAÇÕES DOS CLIENTES (CUSTOMER REVIEWS - IDÊNTICO À FOTO) -->
-  <div class="bg-white p-4 mb-2">
-    <h2 class="font-bold text-sm text-gray-900 mb-1">Customer reviews</h2>
-    <p class="text-xs text-gray-500 mb-3"><span class="font-bold text-gray-800">5</span> <i class="fa-solid fa-star text-black text-[10px]"></i> · 11 global reviews</p>
-
-    <!-- Barras de Avaliação -->
-    <div class="space-y-1.5 text-xs text-gray-600">
-      <div class="flex items-center space-x-2">
-        <span class="w-4 font-bold">5 <i class="fa-solid fa-star text-[9px]"></i></span>
-        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-          <div class="bg-black h-full w-full"></div>
-        </div>
-        <span class="w-4 text-right text-gray-500">11</span>
-      </div>
-      <div class="flex items-center space-x-2 text-gray-300">
-        <span class="w-4 font-bold text-gray-400">4 <i class="fa-solid fa-star text-[9px]"></i></span>
-        <div class="flex-1 h-2 bg-gray-100 rounded-full"></div>
-        <span class="w-4 text-right">0</span>
-      </div>
-      <div class="flex items-center space-x-2 text-gray-300">
-        <span class="w-4 font-bold text-gray-400">3 <i class="fa-solid fa-star text-[9px]"></i></span>
-        <div class="flex-1 h-2 bg-gray-100 rounded-full"></div>
-        <span class="w-4 text-right">0</span>
-      </div>
-      <div class="flex items-center space-x-2 text-gray-300">
-        <span class="w-4 font-bold text-gray-400">2 <i class="fa-solid fa-star text-[9px]"></i></span>
-        <div class="flex-1 h-2 bg-gray-100 rounded-full"></div>
-        <span class="w-4 text-right">0</span>
-      </div>
-    </div>
-
-    <!-- Comentários de Compradores Reais -->
-    <div class="mt-4 border-t border-gray-100 pt-3 space-y-3">
-      <div class="text-xs">
-        <div class="flex items-center space-x-1 mb-1">
-          <div class="font-bold text-gray-800">Carlos M.</div>
-          <div class="text-yellow-400 text-[10px]"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-        </div>
-        <p class="text-gray-600">Tecido muito leve e confortável. Ficou perfeito no corpo!</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 7. BOTÃO FIXO "BUY NOW" (ROSA VIBRANTE) -->
-  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 z-40">
-    <button onclick="handleBuyNow()" class="w-full bg-[#ff2c55] hover:bg-[#e02547] active:scale-[0.98] text-white font-bold py-3.5 rounded-full shadow-md text-base transition">
-      Buy now
-    </button>
-  </div>
-
-  <!-- MODAL DE CHECKOUT (PIX / STRIPE) -->
-  <div id="checkout-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-end">
-    <div class="bg-white rounded-t-2xl w-full p-5 max-h-[85vh] overflow-y-auto">
-      <div class="flex justify-between items-center pb-3 border-b border-gray-100">
-        <h3 class="font-bold text-base text-gray-800">Finalizar Compra</h3>
-        <button onclick="closeModal('checkout-modal')" class="text-gray-400 text-lg"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-
-      <div class="my-4 space-y-3">
-        <div>
-          <label class="block text-xs font-bold text-gray-500 uppercase mb-1">E-mail para Rastreio</label>
-          <input type="email" id="cust-email" placeholder="seuemail@exemplo.com" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:outline-none focus:border-red-500">
-        </div>
-
-        <div class="pt-2 space-y-2">
-          <button onclick="processarPix()" class="w-full bg-emerald-500 text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center space-x-2">
-            <i class="fa-solid fa-qrcode text-lg"></i>
-            <span>Pagar R$ 35,99 via PIX</span>
-          </button>
-          
-          <button onclick="processarStripe()" class="w-full bg-indigo-600 text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center space-x-2">
-            <i class="fa-solid fa-credit-card text-lg"></i>
-            <span>Pagar com Cartão (Stripe)</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL ESTEIRA DE PRODUTOS (ADMIN) -->
-  <div id="admin-modal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl w-full max-w-md p-5 max-h-[90vh] overflow-y-auto">
-      <div class="flex justify-between items-center pb-3 border-b border-gray-100 mb-3">
-        <h3 class="font-bold text-base text-gray-800">Esteira de Produtos</h3>
-        <button onclick="closeModal('admin-modal')" class="text-gray-400"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <p class="text-xs text-gray-500 mb-3">Adicione um novo produto à sua loja:</p>
-      
-      <div class="space-y-3 text-xs">
-        <input type="text" id="adm-title" placeholder="Nome do Produto" class="w-full border p-2 rounded">
-        <div class="grid grid-cols-2 gap-2">
-          <input type="text" id="adm-price" placeholder="Preço (ex: 35.99)" class="border p-2 rounded">
-          <input type="text" id="adm-oldprice" placeholder="Preço Antigo (ex: 90.00)" class="border p-2 rounded">
-        </div>
-        <input type="text" id="adm-img" placeholder="URL da Foto Principal" class="w-full border p-2 rounded">
-        <button onclick="salvarProdutoEsteira()" class="w-full bg-red-500 text-white font-bold py-2.5 rounded-lg text-sm">
-          Salvar Produto na Esteira
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Configuração Stripe
-    const stripe = Stripe('pk_test_SUA_CHAVE_AQUI');
-
-    function handleBuyNow() {
-      document.getElementById('checkout-modal').classList.remove('hidden');
-    }
-
-    function openAdminModal() {
-      document.getElementById('admin-modal').classList.remove('hidden');
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-
-    function openOptionsModal() {
-      handleBuyNow();
-    }
-
-    function processarPix() {
-      const email = document.getElementById('cust-email').value;
-      if(!email) { alert('Digite seu e-mail para receber o rastreio.'); return; }
-      alert('Código PIX gerado com sucesso! Enviaremos a confirmação para: ' + email);
-      closeModal('checkout-modal');
-    }
-
-    function processarStripe() {
-      const email = document.getElementById('cust-email').value;
-      if(!email) { alert('Digite seu e-mail.'); return; }
-      alert('Redirecionando para o Stripe Checkout...');
-    }
-
-    function salvarProdutoEsteira() {
-      alert('Novo produto cadastrado na esteira com sucesso!');
-      closeModal('admin-modal');
-    }
-
-    // Atualizar contador do carrossel ao deslizar
-    const carousel = document.getElementById('carousel');
-    carousel.addEventListener('scroll', () => {
-      const index = Math.round(carousel.scrollLeft / carousel.offsetWidth) + 1;
-      document.getElementById('img-index').innerText = index;
-    });
-  </script>
-</body>
-</html>
+    <!-- PERFIL DE LOJA VERIFICADA -->
+    <div class="flex items-center justify-between border-t border-b border-gray-100 py-2.5 my-2">
+      <div class="flex items-center space-x-3">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=100" class="w-10 h-10 rounded-full border border-gray-200" alt="Apple Store">
+          <i class="fa-solid fa-circle-check text-blue-500 absolute -bottom-1 -right-1 text-xs bg-white rounded-full
