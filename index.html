@@ -6,64 +6,45 @@
   <title>TikTok Shop - Apple Official Store</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Swiper.js para o Carrossel de 10 Fotos -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
-<body class="bg-gray-100 pb-24 font-sans text-gray-800">
+<body class="bg-gray-100 pb-28 font-sans text-gray-800">
 
   <!-- TOPO NATIVO TIKTOK SHOP -->
-  <header class="sticky top-0 z-50 bg-white px-4 py-2.5 flex items-center justify-between border-b border-gray-100 shadow-sm">
-    <button class="text-gray-700 text-xl"><i class="fa-solid fa-chevron-left"></i></button>
-    <div class="flex-1 mx-3 bg-gray-100 rounded-full flex items-center px-3 py-1.5 text-xs text-gray-500">
-      <i class="fa-solid fa-magnifying-glass mr-2 text-gray-400"></i>
-      <span>Buscar no TikTok Shop...</span>
+  <header class="sticky top-0 z-50 bg-white px-4 py-3 flex items-center justify-between border-b border-gray-200 shadow-sm">
+    <button class="text-gray-800 text-lg"><i class="fa-solid fa-chevron-left"></i></button>
+    <div class="flex-1 mx-3 bg-gray-100 rounded-full flex items-center px-3.5 py-1.5 text-xs text-gray-500 border border-gray-200">
+      <i class="fa-solid fa-magnifying-glass mr-2 text-red-500"></i>
+      <span>Buscar na loja...</span>
     </div>
-    <div class="flex items-center space-x-3 text-gray-700 text-lg">
-      <i class="fa-solid fa-share-nodes"></i>
-      <i class="fa-solid fa-ellipsis-vertical"></i>
+    <div class="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-[#ff2c55] text-xs font-bold">
+      <i class="fa-solid fa-bag-shopping"></i>
     </div>
   </header>
 
-  <!-- CAPA / CARROSSEL DE 10 FOTOS DOS APARELHOS -->
+  <!-- CARROSSEL DE 5 FOTOS REAIS DOS IPHONES -->
   <div class="relative bg-white">
     <div class="swiper mySwiper w-full h-80">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600" class="w-full h-full object-contain p-4" alt="iPhone 15 Pro Max"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1695048065057-08b5e6795f70?w=600" class="w-full h-full object-contain p-4" alt="iPhone 16 Pro Max"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" class="w-full h-full object-contain p-4" alt="iPhone 17 Pro Max"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600" class="w-full h-full object-contain p-4" alt="iPhone 18 Pro Max Concept"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600" class="w-full h-full object-contain p-4" alt="Detalhe frontal"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1530319067432-f2a729c03db5?w=600" class="w-full h-full object-contain p-4" alt="Acabamento Titanium"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=600" class="w-full h-full object-contain p-4" alt="Caixa e Lacre"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=600" class="w-full h-full object-contain p-4" alt="Acessórios inclusos"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600" class="w-full h-full object-contain p-4" alt="Traseira Premium"></div>
-        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=600" class="w-full h-full object-contain p-4" alt="Garantia Apple"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600" class="w-full h-full object-cover" alt="iPhone 15 Pro Max"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1695048065057-08b5e6795f70?w=600" class="w-full h-full object-cover" alt="iPhone 16 Pro Max"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600" class="w-full h-full object-cover" alt="iPhone 17 Pro Max"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600" class="w-full h-full object-cover" alt="iPhone 18 Pro Max"></div>
+        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=600" class="w-full h-full object-cover" alt="iPhone 18 Ultra"></div>
       </div>
-      <div class="swiper-pagination"></div>
+      <!-- Paginação numérica estilo TikTok Shop -->
+      <div class="absolute bottom-3 right-3 bg-black/60 text-white text-[11px] px-2 py-0.5 rounded-full z-10 font-mono" id="slideCounter">1 / 5</div>
     </div>
   </div>
 
-  <!-- FAIXA PROMOÇÃO FLASH -->
-  <div class="bg-gradient-to-r from-[#ff2c55] to-[#ff5277] text-white px-4 py-2.5 flex items-center justify-between">
-    <div>
-      <span class="text-xs font-semibold bg-white/20 px-2 py-0.5 rounded">OFERTA FLASH</span>
-      <div class="text-lg font-black tracking-tight" id="precoDisplay">R$ 17,99 <span class="text-xs font-normal line-through opacity-75">R$ 8.999,00</span></div>
+  <!-- PREÇO E DESCONTO -->
+  <div class="bg-white px-4 py-3 border-b border-gray-100">
+    <div class="flex items-baseline space-x-2">
+      <span class="text-xs font-bold bg-[#ff2c55]/10 text-[#ff2c55] px-1.5 py-0.5 rounded">-80%</span>
+      <span class="text-2xl font-black text-[#ff2c55]">R$ 35,99</span>
+      <span class="text-xs text-gray-400 line-through">R$ 8.999,00</span>
     </div>
-    <div class="text-right">
-      <div class="text-[10px] uppercase font-bold tracking-wider">Termina em</div>
-      <div class="text-sm font-mono font-bold bg-black/20 px-2 py-0.5 rounded">14:52:19</div>
-    </div>
-  </div>
-
-  <!-- INFORMAÇÕES DO PRODUTO E LOJA OFICIAL -->
-  <div class="bg-white p-4 mb-2 space-y-3">
-    <h1 class="text-sm font-semibold leading-snug">
-      Apple iPhone Titanium Series Pro Max (Selecione o Modelo: 15 Pro Max, 16 Pro Max, 17 Pro Max ou 18 Pro Max) - 256GB / 512GB / 1TB - Lacrado
+    <h1 class="text-xs font-medium leading-snug mt-2 text-gray-900">
+      Apple iPhone Titanium Series Pro Max & Ultra (Modelos 15, 16, 17, 18 Pro Max e 18 Ultra) - 256GB / 512GB - Lacrado com Garantia
     </h1>
-
-    <!-- PERFIL DE LOJA VERIFICADA -->
-    <div class="flex items-center justify-between border-t border-b border-gray-100 py-2.5 my-2">
-      <div class="flex items-center space-x-3">
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=100" class="w-10 h-10 rounded-full border border-gray-200" alt="Apple Store">
-          <i class="fa-solid fa-circle-check text-blue-500 absolute -bottom-1 -right-1 text-xs bg-white rounded-full
+    <div class="flex items-center justify-between mt-3 text-xs text-gray-500 pt-2
