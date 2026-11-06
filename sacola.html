@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sacola | TikTok Shop</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans pb-32">
+  <header class="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 flex items-center justify-between z-20">
+    <a href="index.html" class="font-bold text-gray-800 text-sm">← Voltar</a>
+    <h1 class="font-bold text-sm">Sacola de Compras</h1>
+    <span class="w-6"></span>
+  </header>
+
+  <main class="max-w-md mx-auto p-4 space-y-4" id="cartContainer">
+    <!-- Itens carregados via JS -->
+  </main>
+
+  <!-- Rodapé fixo com margem segura para o badge do Netlify -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 flex items-center justify-between shadow-lg z-30 mb-6">
+    <div>
+      <span class="text-[11px] text-gray-500 block">Total estimado:</span>
+      <span id="cartTotal" class="text-lg font-black text-[#fe2c55]">R$ 0,00</span>
+    </div>
+    <button onclick="goToCheckout()" class="bg-[#fe2c55] hover:bg-[#e0244b] text-white font-bold px-6 py-3 rounded-full text-sm shadow transition">
+      Continuar Compra →
+    </button>
+  </div>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("shop_cart") || "[]");
+    const container = document.getElementById("cartContainer");
+    let total = 0;
+
+    if (cart.length === 0) {
+      container.innerHTML = `<div class="text-center py-12 text-gray-400 text-sm">Sua sacola está vazia. <br><a href="index.html" class="text-[#fe2c55] font-bold mt-2 inline-block">Ir para a Loja</a></div>`;
+    } else {
+      let html = `<div class="bg-white rounded-xl p-3 shadow-xs border border-gray-100"><div class="font-bold text-xs mb-2 text-gray-700">📦 Y MODA Oficial</div>`;
+      cart.forEach((item, idx) => {
+        total += item.price * item.quantity;
+        html += `
+          <div class="flex items-center justify-between py-2 border-t border-gray-50 text-xs">
+            <div>
+              <p class="font-semibold text-gray-800">${item.name}</p>
+              <p class="text-[#fe2c55] font-bold mt-0.5">R$ ${Number(item.price).toFixed(2)}</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-gray-500">Qtd: ${item.quantity}</span>
+              <button onclick="removeItem(${idx})" class="text-red-500 font-bold px-1 text-sm">&times;</button>
+            </div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+      container.innerHTML = html;
+    }
+    document.getElementById("cartTotal").textContent = "R$ " + total.toFixed(2);
+
+    function removeItem(i) {
+      cart.splice(i, 1);
+      localStorage.setItem("shop_cart", JSON.stringify(cart));
+      location.reload();
+    }
+
+    function goToCheckout() {
+      if(cart.length === 0) { 
+        alert("Sua sacola está vazia!"); 
+        return; 
+      }
+      // Redireciona explicitamente para o checkout
+      window.location.href = "checkout.html";
+    }
+  </script>
+</body>
+</html>
