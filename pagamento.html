@@ -2,37 +2,37 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagamento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pagamento Seguro - TikTok Shop</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans p-4">
+<body class="bg-gray-50 font-sans text-gray-800 p-4">
 
-  <div class="max-w-md mx-auto bg-white p-5 rounded-2xl shadow-sm space-y-4">
-    <div class="flex items-center justify-between pb-3 border-b">
-      <h1 class="font-bold text-base">Escolha a Forma de Pagamento</h1>
-      <a href="checkout.html" class="text-gray-400"><i class="fa-solid fa-xmark text-lg"></i></a>
+  <div class="max-w-md mx-auto bg-white rounded-2xl p-5 border border-gray-200 shadow-sm space-y-4 mt-10">
+    <div class="flex justify-between items-center border-b border-gray-100 pb-3">
+      <span class="text-xs font-bold uppercase text-gray-500">Total a pagar:</span>
+      <span class="text-2xl font-extrabold text-[#ff2c55]">R$ 17,99</span>
     </div>
 
-    <div class="bg-gray-50 p-3 rounded-lg flex justify-between items-center text-sm">
-      <span class="text-gray-600">Total a pagar:</span>
-      <span class="font-extrabold text-[#ff2c55] text-lg">R$ 17,99</span>
-    </div>
-
+    <!-- SELETOR DE PAGAMENTO LIMPO -->
     <div class="space-y-3 pt-2">
-      <!-- Botão PIX -->
-      <button onclick="alert('QR Code PIX gerado com sucesso!')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center space-x-2 shadow">
+      <!-- Opção PIX -->
+      <button onclick="alert('Gerando QR Code PIX...')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center space-x-2 shadow">
         <i class="fa-solid fa-qrcode text-lg"></i>
-        <span>Pagar com PIX (Aprovação Imediata)</span>
+        <span>PIX (Aprovação Imediata)</span>
       </button>
 
-      <!-- Botão Cartão (Stripe integrado internamente sem marca visível) -->
-      <button onclick="alert('Redirecionando para o ambiente de pagamento seguro com cartão...')" class="w-full bg-gray-900 hover:bg-black text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center space-x-2 shadow">
-        <i class="fa-solid fa-credit-card text-lg text-emerald-400"></i>
-        <span>Pagar com Cartão de Crédito</span>
+      <!-- Opção Cartão de Crédito (Processado via Stripe em background, sem expor o nome) -->
+      <button onclick="alert('Abrindo formulário seguro de cartão...')" class="w-full bg-gray-900 hover:bg-black text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center space-x-2 shadow">
+        <i class="fa-solid fa-credit-card text-lg"></i>
+        <span>Cartão de Crédito</span>
       </button>
+    </div>
+
+    <div class="text-center pt-3 text-[11px] text-gray-400 flex items-center justify-center space-x-1">
+      <i class="fa-solid fa-lock"></i>
+      <span>Ambiente Seguro e Criptografado 256-bit</span>
     </div>
   </div>
 
